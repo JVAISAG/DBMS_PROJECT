@@ -4,8 +4,9 @@ import { useState } from "react";
 import "./login.css";
 
 const LoginFrom = ()=>{
-    const [username,setUsername] = useState("")
-    const [pass,setPass] = useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
+    const [userType,setUserType] = useState("")
     const [error,setError] = useState("")
 
     const handleSubmit = async(e) => {
@@ -13,9 +14,10 @@ const LoginFrom = ()=>{
         setError("")
 
         try{
-            const response = await axios.post("http://localhost:5000/api/login",{
-                username,
-                pass,
+            const response = await axios.post("http://localhost:3000/api/login",{
+                email,
+                password,
+                userType
             })
             alert(response.data.message)
         }catch(error){
@@ -28,20 +30,30 @@ const LoginFrom = ()=>{
         <form onSubmit={handleSubmit} className="loginContainer">
             <h2>Login</h2>
             {error && <p style={{color : "red"}}>{error}</p>}
+            <div className="select">
+                <select name="selection" value={userType} onChange={(e)=>
+                    {
+                        setUserType(e.target.value)
+                    }
+                }>
+                    <option value="Student">Student</option>
+                    <option value="Company">Company</option>
+                </select>
+            </div>
             <div className="username">
-                <label>Username:</label>
+                <label>Email:</label>
                 <input
-                type="text"
-                value={username}
-                onChange={(e)=>setUsername(e.target.value)}
+                type="email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 />
             </div>
             <div className="password">
                 <label>Password</label>
                 <input
                 type="password"
-                value={pass}
-                onChange={(e)=>setPass(e.target.value)}
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 />
 
             </div>
