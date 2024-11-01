@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import Register from './RegistrationStudent';
+import Register from './Registration';
 import Login from './Login';
 import {useState} from 'react';
 

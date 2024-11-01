@@ -1,0 +1,140 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+/* Container Styles */
+.registration-container,
+.Container {
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+
+.registration-container:hover,
+.Container:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styles */
+h1,
+h2 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+/* Form Group */
+.form-group,
+.companyName,
+.emailID,
+.password {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* Label */
+label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Select Dropdown */
+.render-switch select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+/* Submit Button */
+.submit-button,
+.btn button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover,
+.btn button:hover {
+  background-color: #45a049;
+}
+
+/* Message */
+.message {
+  color: #e63946;
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .registration-container,
+  .Container {
+      padding: 30px;
+      max-width: 90%;
+  }
+
+  h1, h2 {
+      font-size: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .registration-container,
+  .Container {
+      padding: 20px;
+  }
+}

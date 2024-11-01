@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./RegistrationStudent.css"
+import "./Registration.css"
 
-const Register = () => {
+const RegisterStudent = () => {
   const [emailID, setEmailID] = useState('');
   const [phoneNo, setPhoneNo] = useState('');
   const [pinCode, setPinCode] = useState('');
@@ -15,7 +15,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/register', {
+      const response = await axios.post('http://localhost:5000/api/registers', {
         EmailID: emailID,
         PhoneNo: phoneNo,
         PinCode: pinCode,
@@ -110,4 +110,95 @@ const Register = () => {
   );
 };
 
-export default Register;
+
+const RegisterCompany = () =>{
+  const [companyName,setCompanyName] = useState('');
+  const [emailID,setEmailID] = useState('');
+  const [password,setPassword] = useState('');
+  const [message,setMessage] = useState('');
+  
+  const handleSubmit = async (e) =>{
+      e.preventDefault();
+  
+      try{
+          const response = await axios.post("http://localhost:5000/api/registerc",{
+             CompanyName: companyName,
+              EmailID: emailID,
+              Password : password
+          }
+        )
+          setMessage(response.data.message)
+  
+      }
+      catch(error){
+          setMessage("Error Registering user")
+      }
+  }
+  return(
+      <div className="Container">
+          <form className="registration-form" onSubmit={handleSubmit}>
+  
+          <div className="companyName">
+              <label>Company Name:</label>
+              <input
+               type="text"
+               value={companyName}
+               onChange={(e)=>{setCompanyName(e.target.value)}}
+               required/>
+          </div>
+  
+          <div className="emailID">
+              <label>EmailID:</label>
+              <input
+                  type="email"
+                  value={emailID}
+                  onChange={(e)=>{setEmailID(e.target.value)}}
+                  required/>
+  
+          </div>
+  
+          <div className="password">
+              <label>Password:</label>
+              <input
+                  type="password"
+                  value={password}
+                  onChange={(e)=>{setPassword(e.target.value)}}
+                  required/>
+          </div>
+  
+          <div className="btn">
+              <button type="submit">
+                  Register
+              </button>
+          </div>
+  
+          </form>
+          {message && <p>{message}</p>}
+      </div>
+  )
+  }
+
+  const RegistrationSwitch = () =>{
+    const[userType,setUserType] = useState('student');
+
+    const handleUserTypeChange = (type) =>{
+      setUserType(type)
+    }
+
+    return(
+      <div className={userType === "student"?"registration-container":"registration-form"}>
+        <h1>Register</h1>
+        <div className='render-switch'> 
+          <select value={userType} 
+          onChange={(e)=>{setUserType(e.target.value)}
+        }>
+          <option value="student">Student</option>
+          <option value="company">Company</option>
+        </select>
+        </div>
+        {userType === "student"?<RegisterStudent/>:<RegisterCompany/>}
+      </div>
+    )
+  }
+
+export default RegistrationSwitch;
