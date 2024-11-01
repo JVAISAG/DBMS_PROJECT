@@ -1,4 +1,4 @@
-/* login.css */
+/* RegistrationStudent.css */
 
 body {
     font-family: 'Arial', sans-serif;
@@ -10,14 +10,7 @@ body {
     margin: 0;
   }
   
-  .loginForm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .loginContainer {
+  .registration-container {
     background-color: #ffffff;
     padding: 30px 40px;
     width: 100%;
@@ -26,9 +19,10 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     text-align: center;
     transition: all 0.3s ease-in-out;
+    border: 3px solid #4CAF50; /* Border around the registration container */
   }
   
-  .loginContainer:hover {
+  .registration-container:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
@@ -38,13 +32,7 @@ body {
     font-size: 24px;
   }
   
-  p {
-    font-size: 14px;
-    margin: 10px 0;
-    color: #e63946;
-  }
-  
-  .select, .username, .password {
+  .form-group {
     margin: 20px 0;
     text-align: left;
   }
@@ -57,7 +45,10 @@ body {
     color: #555;
   }
   
-  input[type="email"], input[type="password"], select {
+  input[type="email"],
+  input[type="text"],
+  input[type="password"],
+  input[type="date"] {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -67,18 +58,15 @@ body {
     transition: border 0.3s;
   }
   
-  input[type="email"]:focus, input[type="password"]:focus, select:focus {
+  input[type="email"]:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="date"]:focus {
     border: 1px solid #4CAF50;
     outline: none;
   }
   
-  select {
-    appearance: none;
-    background-color: #f9f9f9;
-    color: #555;
-  }
-  
-  #submit {
+  .submit-button {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -90,16 +78,22 @@ body {
     width: 100%;
   }
   
-  #submit:hover {
+  .submit-button:hover {
     background-color: #45a049;
   }
   
-  #submit:focus {
+  .submit-button:focus {
     outline: none;
   }
   
+  .message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #e63946;
+  }
+  
   @media (max-width: 500px) {
-    .loginContainer {
+    .registration-container {
       padding: 20px;
     }
   }

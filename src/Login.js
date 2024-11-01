@@ -14,7 +14,7 @@ const LoginFrom = ()=>{
         setError("")
 
         try{
-            const response = await axios.post("http://localhost:3000/api/login",{
+            const response = await axios.post("http://localhost:5000/api/login",{
                 email,
                 password,
                 userType
@@ -35,9 +35,10 @@ const LoginFrom = ()=>{
                     {
                         setUserType(e.target.value)
                     }
-                }>
-                    <option value="Student">Student</option>
-                    <option value="Company">Company</option>
+                }>  
+                    <option value="">default</option>
+                    <option value="student">Student</option>
+                    <option value="company">Company</option>
                 </select>
             </div>
             <div className="username">
